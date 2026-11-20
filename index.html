@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+<title>会吃电竞</title>
+    <style>
+        html,body{
+            background-image: url('box1.jpg');
+            background-size: cover;
+            touch-action: manipulation;
+        }
+		#wanfa{
+			display: flex;
+			margin-top: 10px;
+			margin-right: 120px;
+			gap: 15px;
+		}
+		#wanfa span{
+			opacity: 0.7;
+		}
+		.wanfabtn.active{
+			background-color:yellow;
+		}
+		.wanfabtn{
+			border-radius: 50px;
+			border: none;
+            outline: none;
+			opacity: 0.9;
+			width: 65.33px;
+			height: 40px;
+		}
+        #tousu{
+            background-image: url('ts.jpg');
+        }
+        #xiaoliang{
+            background-image: url('xl.jpg');
+        }
+        #ruzhu{
+            background-image: url('rz.jpg');
+        }
+        .rukobtn{
+            transform: translateX(-25px);
+            display: flex;
+            gap: px;
+            width: 90%;
+        }
+        .ruko span{
+            color: red;
+            display: inline-block;
+            transform: translate(0,55px);
+        }
+        .ruko{
+			transform: scale(0.75);
+            font-weight: 700;
+            font-size: 20px;
+            text-overflow: ellipsis;
+            box-sizing: border-box;
+            white-space: nowrap;
+            border: none;
+            border-radius: 10px;
+            padding: 30px 20px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        #zhuyi{
+			
+            color: rgb(255, 123, 0);
+            display: flex;
+            align-items: center;
+            margin-top: -20px;
+            background-color: rgb(255, 255, 100, 0.9);
+            height: 30px;
+            width: 90%;
+            border-radius: 12px;
+            
+        }
+        .btn{
+            gap: 0;
+            margin-top: 15px;
+            margin-left: 15px;
+            color: gray;
+            background: none;
+            border: none;
+            outline: none;
+        }
+        .btn.active{
+            color: yellow;
+
+        }
+        #daohang{
+            position: fixed;
+            gap: 0;
+            width: 300px;       
+            bottom:30px;
+            left:50%;
+            transform: translateX(-50%);
+            height: 50px;
+            border-radius: 999px;
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            --glass-blue: 16px;
+            --glass-alpha: 0.08;
+        }
+        /* 1. 让图片自适应，取消固定宽高 */
+        img#hcdj {
+            transform: translateX(-8px);
+            border-radius: 12px;
+            width: 100%;          /* 宽度占满父级 */
+            max-width: 320px;     /* 但在手机上最大不超过 320px，好看一点 */
+            height: 200px;         /* 高度自动，绝对不变形 */
+            display: block;
+            margin: 20px auto;    /* 上下留 20px 间距，左右自动居中 */
+        }
+
+        /* 2. 主体盒子 */
+        .box {
+            width: 100%;
+            /* 删掉了 align-items: center; 放到 body 上去控制 */
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;  /* 让内部的搜索框和图片水平居中 */
+            gap: 10px;
+            padding-top: 20px;    /* 顶部留点空隙，别贴着屏幕边 */
+        }
+
+        /* 3. 搜索框那一行：用 flex 让输入框和按钮并排 */
+        #qiantao {
+			
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 90%;           /* 占屏幕宽度的 90% */
+            max-width: 350px;
+            gap: 8px;             /* 输入框和按钮的间距 */
+            /* 把原来坑人的 height: 100%; margin-bottom: 530px; 全删了 */
+        }
+
+        #taskInput {
+            flex: 1;              /* 输入框占满剩余空间 */
+            min-width: 0;
+            padding: 14px 16px;
+            font-size: 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 50px;
+            outline: none;
+            opacity: 0.7;
+            /* 删掉了 margin-left: 35px; 交给父容器去居中 */
+        }
+
+        #addBtn {
+            flex-shrink: 0;
+            padding: 14px 20px;
+            font-size: 16px;
+            min-height: 48px;
+            border: none;
+            border-radius: 999px;
+            opacity: 0.7;
+            color: gray;
+            cursor: pointer;
+            background-color: #e5e7eb; /* 给你加个浅灰背景色 */
+        }
+
+        /* 4. body 设置 */
+        body {
+            background-color: rgb(43, 43, 43);
+            max-width: 480px;
+            margin: 0 auto;
+            /* 注意你原来这里 padding 少了 px 单位，我补上了 */
+            padding: 16px 14px calc(16px + env(safe-area-inset-bottom));
+            min-height: 100dvh;
+            margin: 0; 
+        }
+    
+@media ( min-width : 498px ) and (max-width : 510px ){
+}
+    </style>
+</head>
+<body>
+<div class="box" id="box1">
+        <div id="qiantao">
+            <input id="taskInput" placeholder="🔍︎ 搜索你喜欢的单子">
+            <button id="addBtn">🎧</button>
+        </div>
+        
+        <!-- 修正了 < img 之间的空格，改为了相对路径 -->
+        <img id="hcdj" src="hc.jpg">
+        <marquee id="zhuyi">会吃电竞暂未开业</marquee>
+        <div class="rukobtn">
+            <button class="ruko" id="tousu"><span>投诉</span></button>
+            <button class="ruko" id="xiaoliang"><span>销量排行榜</span></button>
+            <button class="ruko" id="ruzhu"><span>陪玩入驻</span></button>
+        </div>
+		
+		<div id="wanfa">
+			<button class="wanfabtn active"><span>全部</span></button>
+			<button class="wanfabtn"><span>趣味玩法</span></button>
+			<button class="wanfabtn"><span>保底专区</span></button>
+		</div>
+	
+</div>
+
+
+
+    <div id="daohang">
+        <button class="btn active">首页</button>
+        <button class="btn">分类</button>
+        <button class="btn">达人</button>
+        <button class="btn">消息</button>
+        <button class="btn">我的</button>
+	</div>
+  <script>
+    // 1. 一次性拿到导航栏里所有的按钮（返回的是列表，可以遍历）
+const navBtns = document.querySelectorAll('#daohang .btn')
+
+// 2. 遍历每个按钮，逐个绑点击事件
+navBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+        // 3. 第一步：先把"所有"按钮的 active 去掉（全部恢复灰色）
+        navBtns.forEach(function (b) {
+            b.classList.remove('active')
+        })
+        // 4. 第二步：只给当前被点的这个加上 active（变黄）
+        btn.classList.add('active')
+    })
+})
+  </script>
+	
+	
+  <script>
+    // 1. 一次性拿到导航栏里所有的按钮（返回的是列表，可以遍历）
+const wanfaBtns = document.querySelectorAll('#wanfa .wanfabtn')
+
+// 2. 遍历每个按钮，逐个绑点击事件
+wanfaBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+        // 3. 第一步：先把"所有"按钮的 active 去掉（全部恢复灰色）
+        wanfaBtns.forEach(function (b) {
+            b.classList.remove('active')
+        })
+        // 4. 第二步：只给当前被点的这个加上 active（变黄）
+        btn.classList.add('active')
+    })
+})
+  </script>
+</body>
+</html>
