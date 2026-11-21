@@ -4,13 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
 <title>会吃电竞</title>
-    <style>
+    <style id="shouye">
         html,body{
             background-image: url('box1.jpg');
+            background-attachment:fixed;
             background-size: cover;
             touch-action: manipulation;
         }
 		#wanfa{
+            transform: translatey(5px);
 			display: flex;
 			margin-top: 10px;
 			margin-right: 120px;
@@ -40,9 +42,9 @@
             background-image: url('rz.jpg');
         }
         .rukobtn{
-            transform: translateX(-25px);
+            transform: translateX(-px);
             display: flex;
-            gap: px;
+            gap: 30px;
             width: 90%;
         }
         .ruko span{
@@ -50,7 +52,12 @@
             display: inline-block;
             transform: translate(0,55px);
         }
+        .ruko #sp2{
+          transform: translate(-20px,55px);
+          
+          }
         .ruko{
+            width:100px;
 			transform: scale(0.75);
             font-weight: 700;
             font-size: 20px;
@@ -69,10 +76,10 @@
             color: rgb(255, 123, 0);
             display: flex;
             align-items: center;
-            margin-top: -20px;
+            margin-top: -12px;
             background-color: rgb(255, 255, 100, 0.9);
             height: 30px;
-            width: 90%;
+            width: 100%;
             border-radius: 12px;
             
         }
@@ -105,7 +112,7 @@
         }
         /* 1. 让图片自适应，取消固定宽高 */
         img#hcdj {
-            transform: translateX(-8px);
+            transform: translateX(-5px);
             border-radius: 12px;
             width: 100%;          /* 宽度占满父级 */
             max-width: 320px;     /* 但在手机上最大不超过 320px，好看一点 */
@@ -115,7 +122,7 @@
         }
 
         /* 2. 主体盒子 */
-        .box {
+        .shouye {
             width: 100%;
             /* 删掉了 align-items: center; 放到 body 上去控制 */
             min-height: 100vh;
@@ -129,7 +136,7 @@
 
         /* 3. 搜索框那一行：用 flex 让输入框和按钮并排 */
         #qiantao {
-			
+			transform: translateX(20px);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -178,6 +185,21 @@
 @media ( min-width : 498px ) and (max-width : 510px ){
 }
     </style>
+
+    <style id="wode">
+        .yhtx{
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            transform: translate(5px,25px);
+        }
+        a{
+            margin-left: 20px;
+            font-size: 30px;
+            color: gray;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
 <div class="box" id="box1">
@@ -191,8 +213,8 @@
         <marquee id="zhuyi">会吃电竞暂未开业</marquee>
         <div class="rukobtn">
             <button class="ruko" id="tousu"><span>投诉</span></button>
-            <button class="ruko" id="xiaoliang"><span>销量排行榜</span></button>
-            <button class="ruko" id="ruzhu"><span>陪玩入驻</span></button>
+            <button class="ruko" id="xiaoliang"><span id="sp2">销量排行榜</span></button>
+            <button class="ruko" id="ruzhu"><span id="sp3">陪玩入驻</span></button>
         </div>
 		
 		<div id="wanfa">
@@ -202,16 +224,32 @@
 		</div>
 	
 </div>
+    <div class="box" id="box2"></div>
+    <div class="box" id="box3"></div>
+    <div class="box" id="box4"></div>
+    <div class="box" id="box5">
+        <img class="yhtx" src="yhtx.jpg">
+        <a href="">还未登陆/注册</a>
+    </div>
 
 
 
     <div id="daohang">
-        <button class="btn active">首页</button>
-        <button class="btn">分类</button>
-        <button class="btn">达人</button>
-        <button class="btn">消息</button>
-        <button class="btn">我的</button>
+        <button class="btn active" onclick="show('box1')">首页</button>
+        <button class="btn" onclick="show('box2')">分类</button>
+        <button class="btn" onclick="show('box3')">达人</button>
+        <button class="btn" onclick="show('box4')">消息</button>
+        <button class="btn" onclick="show('box5')">我的</button>
 	</div>
+    <style>
+        .box{
+            display: none;
+        }
+        #box1{
+            display: block;
+        }
+
+    </style>
   <script>
     // 1. 一次性拿到导航栏里所有的按钮（返回的是列表，可以遍历）
 const navBtns = document.querySelectorAll('#daohang .btn')
@@ -245,6 +283,20 @@ wanfaBtns.forEach(function (btn) {
         btn.classList.add('active')
     })
 })
+  </script>
+
+
+  <script>
+    function show(id) {
+  var boxes = document.querySelectorAll('.box');
+
+  for (var i = 0; i < boxes.length; i++) {
+    boxes[i].style.display = 'none';
+  }
+
+  document.getElementById(id).style.display = 'block';
+}
+
   </script>
 </body>
 </html>
