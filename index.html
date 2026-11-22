@@ -42,7 +42,6 @@
             background-image: url('rz.jpg');
         }
         .rukobtn{
-            transform: translateX(-px);
             display: flex;
             gap: 30px;
             width: 90%;
@@ -98,7 +97,6 @@
         }
         #daohang{
             position: fixed;
-            gap: 0;
             width: 300px;       
             bottom:30px;
             left:50%;
@@ -187,16 +185,27 @@
     </style>
 
     <style id="wode">
+        #name{
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 999px;
+            width: 100%;
+            height: 90px;
+        }
         .yhtx{
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            transform: translate(5px,25px);
+            transform: translate(10px,5px);
         }
-        a{
+        .denglu{
+            background: none;
+            border: none;
+            outline: none;
+            display: inline-block;
+            transform: translateY(-23px);
             margin-left: 20px;
             font-size: 30px;
-            color: gray;
+            color: white;
             text-decoration: none;
         }
     </style>
@@ -228,8 +237,10 @@
     <div class="box" id="box3"></div>
     <div class="box" id="box4"></div>
     <div class="box" id="box5">
-        <img class="yhtx" src="yhtx.jpg">
-        <a href="">还未登陆/注册</a>
+        <div id="name">
+            <img class="yhtx" src="yhtx.jpg">
+            <button class="denglu">还未登陆/注册</button>
+        </div>
     </div>
 
 
